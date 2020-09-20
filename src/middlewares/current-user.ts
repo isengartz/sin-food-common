@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
+import { Request, Response, NextFunction } from "express";
+import jwt from "jsonwebtoken";
 
 interface UserPayload {
   id: string;
@@ -7,19 +7,17 @@ interface UserPayload {
   first_name: string;
   last_name: string;
   addresses: {
-    description:string;
-    floor: string,
-    full_address: string,
-    latitude: string,
-    longitude: string,
+    description: string;
+    floor: string;
+    full_address: string;
+    latitude: string;
+    longitude: string;
   }[];
   phone: string;
   created_at: Date;
   password_changed_at: Date;
-  password_reset_token: string,
-  password_reset_expires: Date
-
-
+  password_reset_token: string;
+  password_reset_expires: Date;
 }
 // Modify Express Request Type and add currentUser
 declare global {
