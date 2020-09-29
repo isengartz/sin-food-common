@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { Error as MongooseError } from "mongoose";
-import { CustomError } from "../errors/custom-error";
+import { CustomError } from "..";
 
 export const errorHandler = (
   err: Error,
