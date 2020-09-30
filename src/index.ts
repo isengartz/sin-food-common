@@ -13,6 +13,7 @@ export * from "./middlewares/validate-request";
 
 export * from "./events/event-interfaces/user-created-event";
 export * from "./events/event-interfaces/user-updated-event";
+export * from "./events/event-interfaces/email-sending-event";
 
 export * from "./events/base-listener";
 export * from "./events/base-publisher";
