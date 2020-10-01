@@ -23,6 +23,16 @@ export class QueryModelHelper {
     return this.query;
   }
 
+  async getTotalCount() {
+    // @ts-ignore
+    return await this.totalCount.countDocuments((err, count) => {
+      if (err) {
+        throw new Error(err.message);
+      }
+      return count;
+    });
+  }
+
   // Filters the query based on params;
   filter(manualExcluded: string[] = []) {
     const queryObj = { ...this.queryString };
@@ -68,9 +78,7 @@ export class QueryModelHelper {
   paginate() {
     if (!this.queryString.nopaginate) {
       // find total count before limiting
-      this.totalCount = _.cloneDeep(this.query).countDocuments(
-        (err, count) => count
-      );
+      this.totalCount = _.cloneDeep(this.query);
       // @ts-ignore
       const page = this.queryString.page * 1 || 1;
       // @ts-ignore
