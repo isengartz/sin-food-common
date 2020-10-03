@@ -29,7 +29,7 @@ export class QueryModelHelper {
       if (err) {
         throw new Error(err.message);
       }
-      return count;
+      return _.isNumber(count) ? count : 0;
     });
   }
 
