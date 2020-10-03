@@ -27,6 +27,8 @@ export class QueryModelHelper {
     // @ts-ignore
     return await this.totalCount.countDocuments((err, count) => {
       if (err) {
+        console.error(err.message);
+        console.error(err);
         throw new Error(err.message);
       }
       return _.isNumber(count) ? count : 0;
