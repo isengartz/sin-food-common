@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import _ from "lodash";
 import { QueryModelHelper } from "./QueryModelHelper";
 import { NotFoundError } from "..";
 
@@ -27,7 +28,7 @@ export const findOne = (Model: any, populateOptions: {}) => async (
   const documentName = Model.collection.collectionName;
   // Populate extra data if needed
   let query = Model.findById(req.params.id);
-  if (populateOptions) {
+  if (!_.isEmpty(populateOptions)) {
     query = query.populate({ populateOptions });
   }
   const document = await query;
@@ -56,7 +57,7 @@ export const findAll = (Model: any, populateOptions: {}) => async (
   const totalCount = await Model.countDocuments(queryHelper.getTotalCount());
 
   let query = queryHelper.getQuery();
-  if (populateOptions) {
+  if (!_.isEmpty(populateOptions)) {
     query = query.populate({ populateOptions });
   }
   const documents = await query;
