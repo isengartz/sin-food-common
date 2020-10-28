@@ -55,9 +55,8 @@ export const findAll = (Model: any, populateOptions: {}) => async (
 
   const totalCount = await Model.countDocuments(queryHelper.getTotalCount());
 
-  let query = await queryHelper.getQuery().populate("addresses");
+  let query = queryHelper.getQuery();
   if (populateOptions) {
-    // @ts-ignore
     query = query.populate({ populateOptions });
   }
   const documents = await query;
