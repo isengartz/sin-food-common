@@ -24,5 +24,5 @@ export * from "./events/subjects";
 export * from "./utils/password";
 export * from "./utils/globalConsts";
 export * from "./utils/QueryModelHelper";
-
+export * from "./utils/controllerFactory";
 export * from "./enums/user-roles";
