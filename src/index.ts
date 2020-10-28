@@ -12,6 +12,8 @@ export * from "./middlewares/require-auth";
 export * from "./middlewares/validate-request";
 export * from "./middlewares/restrict-to";
 export * from "./middlewares/is-admin-or-current-user";
+export * from "./middlewares/require-auth-restaurant";
+export * from "./middlewares/current-restaurant";
 
 export * from "./events/event-interfaces/user-created-event";
 export * from "./events/event-interfaces/user-updated-event";
