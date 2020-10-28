@@ -1,0 +1,13 @@
+import { Request, Response, NextFunction } from "express";
+import { NotAuthorizedError, UserRole } from "..";
+
+// For routes that require userId param instead of checking if currentUser Id equal userId Param
+// Add this middleware so admin can edit anything but simple user only his collection
+export const isAdmin = (param: string) => {
+  return (req: Request, res: Response, next: NextFunction) => {
+    if (req.currentUser!.role !== UserRole.Admin) {
+      throw new NotAuthorizedError(`You dont have access in this route`);
+    }
+    next();
+  };
+};
