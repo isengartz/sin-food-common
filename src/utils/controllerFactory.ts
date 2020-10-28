@@ -3,7 +3,7 @@ import { QueryModelHelper } from "./QueryModelHelper";
 import { NotFoundError } from "..";
 
 // Create a new document of given Model
-exports.createOne = (Model: any) => async (
+export const createOne = (Model: any) => async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -19,7 +19,7 @@ exports.createOne = (Model: any) => async (
 };
 
 // Find one document of given Model
-exports.findOne = (Model: any, populateOptions: {}) => async (
+export const findOne = (Model: any, populateOptions: {}) => async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -40,7 +40,7 @@ exports.findOne = (Model: any, populateOptions: {}) => async (
 };
 
 // Find all documents of given Model
-exports.findAll = (Model: any, populateOptions: {}) => async (
+export const findAll = (Model: any, populateOptions: {}) => async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -72,7 +72,7 @@ exports.findAll = (Model: any, populateOptions: {}) => async (
 };
 
 // Delete a document of given Model
-exports.deleteOne = (Model: any) => async (
+export const deleteOne = (Model: any) => async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -89,7 +89,7 @@ exports.deleteOne = (Model: any) => async (
 };
 
 // Updates a document of given Model
-exports.updateOne = (Model: any) => async (
+export const updateOne = (Model: any) => async (
   req: Request,
   res: Response,
   next: NextFunction
