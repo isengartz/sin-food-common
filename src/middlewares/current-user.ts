@@ -1,12 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { UserRole } from "..";
+import {UserPayload} from "../interfaces/UserPayload";
 
-interface UserPayload {
-  id: string;
-  email: string;
-  role: UserRole;
-}
+
 
 // Modify Express Request Type and add currentUser
 declare global {
