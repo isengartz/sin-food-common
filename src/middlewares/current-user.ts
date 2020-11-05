@@ -6,8 +6,8 @@ interface UserPayload {
   id: string;
   email: string;
   role: UserRole;
-
 }
+
 // Modify Express Request Type and add currentUser
 declare global {
   namespace Express {
