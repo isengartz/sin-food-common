@@ -17,8 +17,6 @@ export * from "./middlewares/is-admin-or-current-user";
 export * from "./middlewares/is-admin";
 
 // Event Interfaces
-export * from "./events/event-interfaces/user-created-event";
-export * from "./events/event-interfaces/user-updated-event";
 export * from "./events/event-interfaces/email-sending-event";
 
 // Listeners
