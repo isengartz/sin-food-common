@@ -29,12 +29,12 @@ export * from './utils/password';
 export * from './utils/globalConsts';
 export * from './utils/QueryModelHelper';
 export * from './utils/controllerFactory';
-
+export * from './utils/RelationHelper';
 export * from './utils/AuthHelper';
 
 // Enums
 export * from './enums/user-roles';
 
 // Interfaces
-
+export * from './interfaces/RelationInterface';
 export * from './interfaces/UserPayload';
