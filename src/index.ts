@@ -35,6 +35,7 @@ export * from './utils/AuthHelper';
 
 // Enums
 export * from './enums/user-roles';
+export * from './enums/working-days';
 
 // Interfaces
 export * from './interfaces/RelationInterface';
