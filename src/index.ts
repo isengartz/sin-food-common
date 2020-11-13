@@ -32,6 +32,7 @@ export * from './utils/QueryModelHelper';
 export * from './utils/controllerFactory';
 export * from './utils/RelationHelper';
 export * from './utils/AuthHelper';
+export * from './utils/DateHelper';
 
 // Enums
 export * from './enums/user-roles';
