@@ -3,7 +3,8 @@ import _ from 'lodash';
 import mongoose from 'mongoose';
 import { NotFoundError } from '../errors/not-found-error';
 import { QueryModelHelper } from './QueryModelHelper';
-import { NotAuthorizedError, UserRole } from '..';
+import { NotAuthorizedError } from '../errors/not-authorized-error';
+import { UserRole } from '../enums/user-roles';
 
 // Create a new document of given Model
 export const createOne = <
@@ -132,10 +133,7 @@ export const updateOne = <
 ) => async (req: Request, res: Response, next: NextFunction) => {
   const documentName = Model.collection.collectionName;
   const document = await Model.findById(req.params.id);
-  // AndUpdate(req.params.id, req.body, {
-  //   new: true,
-  //   runValidators: true,
-  // }
+
   if (!document) {
     throw new NotFoundError(`No ${documentName} found with that ID`);
   }
@@ -149,7 +147,7 @@ export const updateOne = <
       throw new NotAuthorizedError('You dont have access to this Document');
     }
   }
-  const updatedDocument = await document.update(req.body, {
+  const updatedDocument = await document.updateOne(req.body, {
     new: true,
     runValidators: true,
   });
