@@ -12,8 +12,19 @@ export const createOne = <
   T extends mongoose.Model<U>
 >(
   Model: T,
+  authField?: string,
 ) => async (req: Request, res: Response, next: NextFunction) => {
   const documentName = Model.collection.collectionName;
+  // Change the auth field to current user if he isn't admin and its different than his id
+  if (authField) {
+    if (
+      // @ts-ignore
+      req.body[authField] !== req.currentUser!.id &&
+      req.currentUser!.role !== UserRole.Admin
+    ) {
+      req.body[authField] = req.currentUser!.id;
+    }
+  }
   // @ts-ignore
   const document: U = await Model.build(req.body).save();
   res.status(201).json({
@@ -64,9 +75,20 @@ export const findAll = <
 >(
   Model: T,
   populateOptions: {},
+  authField?: string,
 ) => async (req: Request, res: Response, next: NextFunction) => {
   const documentName = Model.collection.collectionName;
 
+  // Attach filter to only select documents owned by current user
+  if (authField) {
+    if (
+      // @ts-ignore
+      document[authField] !== req.currentUser!.id &&
+      req.currentUser!.role !== UserRole.Admin
+    ) {
+      req.query[authField] = req.currentUser!.id;
+    }
+  }
   const queryHelper = new QueryModelHelper(Model.find(), req.query)
     .filter()
     .sort()
