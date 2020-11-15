@@ -51,7 +51,7 @@ export const findOne = <
     query = query.populate(populateOptions);
   }
   const document = await query;
-  if (authField) {
+  if (authField && document) {
     if (
       // @ts-ignore
       document[authField] !== req.currentUser!.id &&
