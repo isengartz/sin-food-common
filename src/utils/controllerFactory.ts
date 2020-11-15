@@ -81,11 +81,7 @@ export const findAll = <
 
   // Attach filter to only select documents owned by current user
   if (authField) {
-    if (
-      // @ts-ignore
-      document[authField] !== req.currentUser!.id &&
-      req.currentUser!.role !== UserRole.Admin
-    ) {
+    if (req.currentUser!.role !== UserRole.Admin) {
       req.query[authField] = req.currentUser!.id;
     }
   }
