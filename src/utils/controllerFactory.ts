@@ -165,10 +165,17 @@ export const updateOne = <
       throw new NotAuthorizedError('You dont have access to this Document');
     }
   }
-  const updatedDocument = await document.updateOne(req.body, {
-    new: true,
-    runValidators: true,
-  });
+  // @todo: need to optimize this so I wont execute 2 find queries
+  // Probably I need to manually set each field
+  // Then I will need to change all post update middleware
+  const updatedDocument = await Model.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    },
+  );
   res.status(200).json({
     status: 'success',
     data: {
