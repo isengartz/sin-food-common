@@ -173,16 +173,16 @@ export const updateOne = <
       !excludes.includes(param) &&
       !GLOBAL_EXCLUDED_UPDATE_FIELDS.includes(param)
     ) {
-      document.set({ param: req.params[param] });
+      document.set({ [param]: req.body[param] });
     }
   });
 
-  await document.save();
+  const updatedDocument = await document.save();
 
   res.status(200).json({
     status: 'success',
     data: {
-      [documentName]: document,
+      [documentName]: updatedDocument,
     },
   });
 };
