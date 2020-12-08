@@ -5,6 +5,7 @@ import { NotFoundError } from '../errors/not-found-error';
 import { QueryModelHelper } from './QueryModelHelper';
 import { NotAuthorizedError } from '../errors/not-authorized-error';
 import { UserRole } from '../enums/user-roles';
+import { GLOBAL_EXCLUDED_UPDATE_FIELDS } from './globalConsts';
 
 // Create a new document of given Model
 export const createOne = <
@@ -166,9 +167,12 @@ export const updateOne = <
       throw new NotAuthorizedError('You dont have access to this Document');
     }
   }
-  // Update the document excluding any field inside excludes array
-  Object.keys(req.params).forEach((param) => {
-    if (!excludes.includes(param)) {
+  // Update the document excluding any field inside excludes array or global excludes
+  Object.keys(req.body).forEach((param) => {
+    if (
+      !excludes.includes(param) &&
+      !GLOBAL_EXCLUDED_UPDATE_FIELDS.includes(param)
+    ) {
       document.set({ param: req.params[param] });
     }
   });
