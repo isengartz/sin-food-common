@@ -148,6 +148,7 @@ export const updateOne = <
 >(
   Model: T,
   authField?: string,
+  excludes: string[] = [],
 ) => async (req: Request, res: Response, next: NextFunction) => {
   const documentName = Model.collection.collectionName;
   const document = await Model.findById(req.params.id);
@@ -165,21 +166,19 @@ export const updateOne = <
       throw new NotAuthorizedError('You dont have access to this Document');
     }
   }
-  // @todo: need to optimize this so I wont execute 2 find queries
-  // Probably I need to manually set each field
-  // Then I will need to change all post update middleware
-  const updatedDocument = await Model.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {
-      new: true,
-      runValidators: true,
-    },
-  );
+  // Update the document excluding any field inside excludes array
+  Object.keys(req.params).forEach((param) => {
+    if (!excludes.includes(param)) {
+      document.set({ param: req.params[param] });
+    }
+  });
+
+  await document.save();
+
   res.status(200).json({
     status: 'success',
     data: {
-      [documentName]: updatedDocument,
+      [documentName]: document,
     },
   });
 };
