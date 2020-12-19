@@ -33,7 +33,7 @@ export * from './events/event-interfaces/menu/ingredient-deleted-event';
 
 // Order
 export * from './events/event-interfaces/order/order-created-event';
-
+export * from './events/event-interfaces/order/order-updated-event';
 /**
  * End of Event Interfaces
  */
