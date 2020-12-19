@@ -15,6 +15,7 @@ export * from './middlewares/validate-request';
 export * from './middlewares/restrict-to';
 export * from './middlewares/is-admin-or-current-user';
 export * from './middlewares/is-admin';
+export * from './middlewares/restrict-to-own-records';
 
 /**
  * Event Interfaces
