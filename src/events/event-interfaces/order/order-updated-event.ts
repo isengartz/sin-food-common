@@ -9,5 +9,6 @@ export interface OrderUpdatedEvent {
     status: OrderStatus;
     userId: string;
     restaurantId: string;
+    version: number;
   };
 }
