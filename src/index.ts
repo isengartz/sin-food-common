@@ -30,6 +30,9 @@ export * from './events/event-interfaces/menu/ingredient-created-event';
 export * from './events/event-interfaces/menu/ingredient-updated-event';
 export * from './events/event-interfaces/menu/ingredient-deleted-event';
 
+// Order
+export * from './events/event-interfaces/order/order-created-event';
+
 /**
  * End of Event Interfaces
  */
