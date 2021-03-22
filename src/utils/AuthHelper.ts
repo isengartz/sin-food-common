@@ -24,6 +24,7 @@ class AuthHelper {
     const token = AuthHelper.signToken({
       id: user.id,
       email: user.email,
+      first_name: user.first_name,
       role: user.role,
     });
 
@@ -35,6 +36,5 @@ class AuthHelper {
       },
     });
   }
-
 }
 export { AuthHelper };
