@@ -1,8 +1,8 @@
 import { UserRole } from '../enums/user-roles';
 
-export interface UserPayload {
+export interface UserRestaurantPayload {
   id: string;
   email: string;
-  first_name: string;
+  name: string;
   role: UserRole;
 }

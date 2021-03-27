@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/indent */
 import { Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { UserPayload, UserRestaurantPayload } from '../interfaces/UserPayload';
-import { UserRole } from '../enums/user-roles';
+import { UserRestaurantPayload } from '../interfaces/UserRestaurantPayload';
+import { UserPayload } from '../interfaces/UserPayload';
 
 class AuthHelper {
   // Sign the User Token

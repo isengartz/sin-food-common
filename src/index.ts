@@ -60,3 +60,4 @@ export * from './enums/order-status';
 // Interfaces
 export * from './interfaces/RelationInterface';
 export * from './interfaces/UserPayload';
+export * from './interfaces/UserRestaurantPayload';
