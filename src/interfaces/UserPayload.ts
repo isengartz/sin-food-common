@@ -6,3 +6,10 @@ export interface UserPayload {
   first_name: string;
   role: UserRole;
 }
+
+export interface UserRestaurantPayload {
+  id: string;
+  email: string;
+  name: string;
+  role: UserRole;
+}

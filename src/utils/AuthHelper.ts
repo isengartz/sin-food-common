@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/indent */
 import { Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { UserPayload } from '../interfaces/UserPayload';
+import { UserPayload, UserRestaurantPayload } from '../interfaces/UserPayload';
 import { UserRole } from '../enums/user-roles';
 
 class AuthHelper {
   // Sign the User Token
-  static signToken(payload: UserPayload) {
+  static signToken(payload: UserPayload | UserRestaurantPayload) {
     return jwt.sign(payload, process.env.JWT_KEY!); // add the ! to remove TS error
   }
 
@@ -16,17 +17,25 @@ class AuthHelper {
 
   // Sign Serialize create cookie and send the request
   static createSendToken(
-    user: UserPayload,
+    user: UserPayload | UserRestaurantPayload,
     statusCode: number,
     res: Response,
   ): void {
     // Create Token
-    const token = AuthHelper.signToken({
-      id: user.id,
-      email: user.email,
-      first_name: user.first_name,
-      role: user.role,
-    });
+    const token =
+      'first_name' in user
+        ? AuthHelper.signToken({
+            id: user.id,
+            email: user.email,
+            first_name: user.first_name,
+            role: user.role,
+          })
+        : AuthHelper.signToken({
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            role: user.role,
+          });
 
     res.status(statusCode).json({
       status: 'success',
