@@ -11,7 +11,7 @@ export interface RestaurantCreatedEvent {
       open: number;
       close: number;
     }[];
-    holidays: [Date];
+    holidays: Date[];
     delivers_to: {
       type?: string;
       coordinates: number[][][];
