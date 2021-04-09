@@ -19,6 +19,7 @@ export class RelationHelper<T extends mongoose.Document> {
   // Remove references from relation
   // Used when deleting a Document
   removeReferencesBasedOnId() {
+    const resultIds: any = [];
     this.relations.forEach(async (relation) => {
       const model = mongoose.model(relation.model);
       await model.updateMany(
@@ -29,7 +30,9 @@ export class RelationHelper<T extends mongoose.Document> {
           },
         },
       );
+      resultIds.push([this.document[relation.parentIdentifier as keyof T]]);
     });
+    return resultIds;
   }
 
   // Insert a new reference to relation
