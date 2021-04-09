@@ -1,7 +1,7 @@
 import { Subjects } from '../../subjects';
 
-export interface RestaurantCategoryDeletedEvent {
-  subject: Subjects.RestaurantCategoryDeleted;
+export interface UserAddressDeletedEvent {
+  subject: Subjects.UserAddressDeleted;
   data: {
     id: string;
     version: number;

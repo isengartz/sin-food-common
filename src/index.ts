@@ -21,7 +21,17 @@ export * from './middlewares/restrict-to-own-records';
  * Event Interfaces
  */
 export * from './events/event-interfaces/email-sending-event';
+
+// User
+export * from './events/event-interfaces/user/user-address-created-event';
+export * from './events/event-interfaces/user/user-address-updated-event';
+export * from './events/event-interfaces/user/user-address-deleted-event';
+
+// Restaurant
 export * from './events/event-interfaces/restaurant/restaurant-category-deleted-event';
+export * from './events/event-interfaces/restaurant/restaurant-created-event';
+export * from './events/event-interfaces/restaurant/restaurant-updated-event';
+export * from './events/event-interfaces/restaurant/restaurant-deleted-event';
 
 // Menu
 export * from './events/event-interfaces/menu/menu-item-created-event';
