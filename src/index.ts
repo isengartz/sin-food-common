@@ -61,6 +61,7 @@ export * from './utils/controllerFactory';
 export * from './utils/RelationHelper';
 export * from './utils/AuthHelper';
 export * from './utils/DateHelper';
+export * from './utils/convert-object-key-to-array';
 
 // Enums
 export * from './enums/user-roles';

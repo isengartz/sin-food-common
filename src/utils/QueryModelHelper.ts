@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import * as QueryString from 'qs';
 import _ from 'lodash';
 import { GLOBAL_PAGINATION_SIZE } from './globalConsts';
+import { convertObjectKeyToArray } from './convert-object-key-to-array';
 
 export class QueryModelHelper {
   private query;
@@ -46,8 +47,10 @@ export class QueryModelHelper {
     ].concat(manualExcluded);
     excludedFields.forEach((el) => delete queryObj[el]);
 
+    const convertedObject = convertObjectKeyToArray(queryObj, ['in', 'nin']);
+
     // Populate filters in actual mongoose filter obj
-    let queryString = JSON.stringify(queryObj);
+    let queryString = JSON.stringify(convertedObject);
     queryString = queryString.replace(
       /\b(gte|gt|lte|lt|in|nin)\b/g,
       (match) => {
