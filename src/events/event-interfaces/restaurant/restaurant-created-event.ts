@@ -6,6 +6,9 @@ export interface RestaurantCreatedEvent {
   data: {
     id: string;
     version: number;
+    logo: string | null;
+    minimum_order: number;
+    name: string;
     working_hours: {
       day: Weekdays;
       open: number;
