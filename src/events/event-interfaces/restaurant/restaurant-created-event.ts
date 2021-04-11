@@ -6,6 +6,7 @@ export interface RestaurantCreatedEvent {
   data: {
     id: string;
     version: number;
+    enabled: boolean;
     logo: string | null;
     minimum_order: number;
     name: string;
