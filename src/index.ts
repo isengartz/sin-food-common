@@ -16,6 +16,7 @@ export * from './middlewares/restrict-to';
 export * from './middlewares/is-admin-or-current-user';
 export * from './middlewares/is-admin';
 export * from './middlewares/restrict-to-own-records';
+export * from './middlewares/filter-by-req-param';
 
 /**
  * Event Interfaces
