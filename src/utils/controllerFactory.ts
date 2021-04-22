@@ -42,7 +42,7 @@ export const findOne = <
   T extends mongoose.Model<U>
 >(
   Model: T,
-  populateOptions: {},
+  populateOptions: { path: string } | { path: string }[],
   authField?: string,
 ) => async (req: Request, res: Response, next: NextFunction) => {
   const documentName = Model.collection.collectionName;
@@ -98,7 +98,7 @@ export const findAll = <
   T extends mongoose.Model<U>
 >(
   Model: T,
-  populateOptions: {},
+  populateOptions: { path: string } | { path: string }[],
   authField?: string,
 ) => async (req: Request, res: Response, next: NextFunction) => {
   const documentName = Model.collection.collectionName;
