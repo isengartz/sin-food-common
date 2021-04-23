@@ -68,6 +68,7 @@ export * from './utils/convert-object-key-to-array';
 export * from './enums/user-roles';
 export * from './enums/working-days';
 export * from './enums/order-status';
+export * from './enums/payment-methods';
 
 // Interfaces
 export * from './interfaces/RelationInterface';
