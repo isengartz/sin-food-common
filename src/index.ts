@@ -18,6 +18,17 @@ export * from './middlewares/is-admin';
 export * from './middlewares/restrict-to-own-records';
 export * from './middlewares/filter-by-req-param';
 
+// Enums
+export * from './enums/user-roles';
+export * from './enums/working-days';
+export * from './enums/order-status';
+export * from './enums/payment-method';
+
+// Interfaces
+export * from './interfaces/RelationInterface';
+export * from './interfaces/UserPayload';
+export * from './interfaces/UserRestaurantPayload';
+
 /**
  * Event Interfaces
  */
@@ -63,14 +74,3 @@ export * from './utils/RelationHelper';
 export * from './utils/AuthHelper';
 export * from './utils/DateHelper';
 export * from './utils/convert-object-key-to-array';
-
-// Enums
-export * from './enums/user-roles';
-export * from './enums/working-days';
-export * from './enums/order-status';
-export * from './enums/payment-methods';
-
-// Interfaces
-export * from './interfaces/RelationInterface';
-export * from './interfaces/UserPayload';
-export * from './interfaces/UserRestaurantPayload';
