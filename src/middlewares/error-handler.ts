@@ -18,8 +18,13 @@ export const errorHandler = (
   }
 
   // Mongoose Validation Errors
-  if (err instanceof MongooseError.ValidationError) {
+  if (
+    err instanceof MongooseError.ValidationError ||
+    err.name === 'ValidationError'
+  ) {
+    // @ts-ignore
     const mongooseErrors = Object.values(err.errors).map((el) => {
+      // @ts-ignore
       return { message: el.message };
     });
     return res.status(400).send({ status, errors: mongooseErrors });
@@ -46,6 +51,7 @@ export const errorHandler = (
 
   // eslint-disable-next-line no-console
   console.error(err);
+  console.error(err.name);
   res.status(500).send({
     status,
     errors: [
