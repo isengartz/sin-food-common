@@ -17,4 +17,8 @@ export enum Subjects {
   MenuItemDeleted = 'menu:deleted',
   OrderCreated = 'order:created',
   OrderUpdated = 'order:updated',
+  OrderCompleted = 'order:completed',
+  OrderCancelled = 'order:cancelled',
+  ExpirationCompleted = 'expiration:completed',
+  PaymentCreated = 'payment:created',
 }

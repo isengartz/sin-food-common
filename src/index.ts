@@ -32,7 +32,6 @@ export * from './interfaces/UserRestaurantPayload';
 /**
  * Event Interfaces
  */
-export * from './events/event-interfaces/email-sending-event';
 
 // User
 export * from './events/event-interfaces/user/user-address-created-event';
@@ -56,6 +55,18 @@ export * from './events/event-interfaces/menu/ingredient-deleted-event';
 // Order
 export * from './events/event-interfaces/order/order-created-event';
 export * from './events/event-interfaces/order/order-updated-event';
+export * from './events/event-interfaces/order/order-completed-event';
+export * from './events/event-interfaces/order/order-cancelled-event';
+
+// Payment
+export * from './events/event-interfaces/payment/payment-created-event';
+
+// Expiration
+export * from './events/event-interfaces/expiration/expiration-complete-event';
+
+// Notification
+export * from './events/event-interfaces/notification/email-sending-event';
+
 /**
  * End of Event Interfaces
  */
