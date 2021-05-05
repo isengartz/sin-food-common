@@ -37,6 +37,8 @@ export * from './interfaces/UserRestaurantPayload';
 export * from './events/event-interfaces/user/user-address-created-event';
 export * from './events/event-interfaces/user/user-address-updated-event';
 export * from './events/event-interfaces/user/user-address-deleted-event';
+export * from './events/event-interfaces/user/user-created-event';
+export * from './events/event-interfaces/user/user-updated-event';
 
 // Restaurant
 export * from './events/event-interfaces/restaurant/restaurant-category-deleted-event';
