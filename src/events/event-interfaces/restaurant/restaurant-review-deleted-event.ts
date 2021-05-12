@@ -4,6 +4,6 @@ export interface RestaurantReviewDeletedEvent {
   subject: Subjects.RestaurantReviewDeleted;
   data: {
     id: string;
-    version: Number;
+    version: number;
   };
 }

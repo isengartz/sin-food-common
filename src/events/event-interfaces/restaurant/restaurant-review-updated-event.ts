@@ -7,9 +7,9 @@ export interface RestaurantReviewUpdatedEvent {
     orderId: string;
     restaurant: string;
     userId: string;
-    rating: Number;
+    rating: number;
     comment: string;
-    version: Number;
+    version: number;
     createdAt: Date;
     updatedAt: Date;
   };
