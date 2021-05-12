@@ -45,6 +45,9 @@ export * from './events/event-interfaces/restaurant/restaurant-category-deleted-
 export * from './events/event-interfaces/restaurant/restaurant-created-event';
 export * from './events/event-interfaces/restaurant/restaurant-updated-event';
 export * from './events/event-interfaces/restaurant/restaurant-deleted-event';
+export * from './events/event-interfaces/restaurant/restaurant-review-created-event';
+export * from './events/event-interfaces/restaurant/restaurant-review-updated-event';
+export * from './events/event-interfaces/restaurant/restaurant-review-deleted-event';
 
 // Menu
 export * from './events/event-interfaces/menu/menu-item-created-event';
